@@ -1,0 +1,46 @@
+1. Install laravel
+composer create-project laravel/laravel example-app
+
+2. Jalankan
+php artisan serve
+
+3. Membuatkan folder storage untuk upload
+php artisan storage:link
+
+4. Setting .env untuk koneksi database
+DB_DATABASE=(NAMA DATABASE)
+DB_USERNAME=root
+DB_PASSWORD=(kosong)
+
+5. Membuat Database
+Membuat Database Bapomilaravel
+
+6. Membuat Model
+php artisan make:model Post -m
+
+7. Menambah coding pada table migras
+	    $table->id();
+            $table->string('image');
+            $table->string('title');
+            $table->text('content');
+            $table->timestamps();
+
+8. Konfigurasi Mass Assignment
+class Post extends Model
+{
+    use HasFactory;
+    
+    /**
+     * fillable
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'image',
+        'title',
+        'content',
+    ];
+}
+
+9. Menjalankan Migration
+php artisan migrate
